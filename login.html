@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GITAM Helpdesk — Login</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+  <div class="bg-grid"></div>
+
+  <div class="login-wrapper">
+
+    <!-- LEFT: Branding -->
+    <div class="login-brand-panel">
+      <div class="brand-inner">
+        <img src="image.png" alt="GITAM University" class="brand-logo"/>
+        <h1 class="brand-headline">Student<br/><em>Helpdesk</em></h1>
+        <p class="brand-tagline">Your intelligent assistant for academics, fees, exams &amp; more.</p>
+        <ul class="brand-features">
+          <li><span class="feat-bullet"></span>AI-powered instant responses</li>
+          <li><span class="feat-bullet"></span>Auto-generated support tickets</li>
+          <li><span class="feat-bullet"></span>Available 24 &times; 7</li>
+        </ul>
+      </div>
+      <div class="brand-ring ring-lg"></div>
+      <div class="brand-ring ring-sm"></div>
+    </div>
+
+    <!-- RIGHT: Login Form -->
+    <div class="login-form-panel">
+      <div class="form-card">
+
+        <span class="form-eyebrow">Welcome back</span>
+        <h2 class="form-heading">Sign in to continue</h2>
+        <p class="form-hint">Use your official <strong>@gitam.in</strong> email address</p>
+
+        <form id="loginForm" novalidate>
+
+          <div class="field-group">
+            <label for="email">Email Address</label>
+            <div class="input-shell">
+              <svg class="inp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <rect x="2" y="4" width="20" height="16" rx="2.5"/>
+                <path d="M2 7l10 7 10-7"/>
+              </svg>
+              <input type="email" id="email" placeholder="rollno@gitam.in" required/>
+            </div>
+            <p class="field-error" id="emailErr"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="rollno">Roll Number</label>
+            <div class="input-shell">
+              <svg class="inp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+              </svg>
+              <input type="text" id="rollno" placeholder="e.g. 21CS001" required/>
+            </div>
+            <p class="field-error" id="rollErr"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="input-shell">
+              <svg class="inp-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <rect x="5" y="11" width="14" height="10" rx="2"/>
+                <path d="M8 11V7a4 4 0 018 0v4"/>
+              </svg>
+              <input type="password" id="password" placeholder="Enter your password" required/>
+              <button type="button" id="togglePass" class="eye-btn" aria-label="Toggle password">
+                <svg id="eyeShow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg id="eyeHide" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                  <path d="M17.94 17.94A10.94 10.94 0 0112 19c-7 0-11-7-11-7a18.45 18.45 0 015.06-5.94M9.9 4.24A9 9 0 0112 4c7 0 11 7 11 7a18.5 18.5 0 01-2.16 3.19M1 1l22 22"/>
+                </svg>
+              </button>
+            </div>
+            <p class="field-error" id="passErr"></p>
+          </div>
+
+          <div class="form-row-opts">
+            <label class="check-wrap">
+              <input type="checkbox" id="rememberMe"/>
+              <span class="check-box"></span>
+              Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-signin" id="signinBtn">
+            <span id="btnLabel">Sign In</span>
+            <svg class="btn-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <div class="or-divider"><span>or</span></div>
+
+          <a href="admin.html" class="btn-admin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+            </svg>
+            Admin Portal
+          </a>
+
+        </form>
+
+        <p class="form-footer-note">GITAM Deemed to be University &nbsp;&bull;&nbsp; Student Services</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

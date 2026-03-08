@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GITAM Helpdesk — Chat</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="chat-body">
+
+  <!-- ══════════════ SIDEBAR ══════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <img src="image.png" alt="GITAM" class="sidebar-logo"/>
+      <div class="sidebar-brand">
+        <span class="sb-name">GITAM</span>
+        <span class="sb-sub">Helpdesk</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <span class="nav-section-label">Quick Topics</span>
+
+      <button class="quick-btn" data-msg="What is the last date to pay fees?">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Fee Payment
+      </button>
+      <button class="quick-btn" data-msg="When is the exam timetable released?">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Examinations
+      </button>
+      <button class="quick-btn" data-msg="How do I get a bonafide certificate?">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        Academics
+      </button>
+      <button class="quick-btn" data-msg="How do I apply for hostel accommodation?">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Hostel
+      </button>
+      <button class="quick-btn complaint-btn" data-msg="I want to file a complaint against a staff member.">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Raise Complaint
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-pill">
+        <div class="user-ava" id="userAva">S</div>
+        <div class="user-meta">
+          <span id="uName">Student</span>
+          <small id="uRoll">Roll No.</small>
+        </div>
+      </div>
+      <button class="logout-btn" id="logoutBtn" title="Logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══════════════ MAIN CHAT ══════════════ -->
+  <main class="chat-main">
+
+    <header class="chat-header">
+      <button class="hamburger" id="menuToggle" aria-label="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-center">
+        <span class="online-dot"></span>
+        GITAM AI Helpdesk
+      </div>
+      <a href="admin.html" class="header-admin-btn" title="Admin Panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+        </svg>
+        Admin
+      </a>
+    </header>
+
+    <section class="chat-window" id="chatWindow">
+      <!-- Welcome card shown on load -->
+      <div class="welcome-card" id="welcomeCard">
+        <img src="image.png" alt="GITAM" class="wc-logo"/>
+        <h2 class="wc-title">Hello, <span id="wName">Student</span>! 👋</h2>
+        <p class="wc-sub">I am your GITAM AI Assistant. Ask me anything about fees, exams, academics, hostel, or raise a complaint.</p>
+        <div class="wc-chips">
+          <button class="chip" data-msg="What is the fee payment deadline?">Fee deadline</button>
+          <button class="chip" data-msg="When are exams scheduled?">Exam schedule</button>
+          <button class="chip" data-msg="How do I check my CGPA?">Check CGPA</button>
+          <button class="chip" data-msg="I want to report a problem">Report issue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator" id="typingBar" style="display:none">
+      <div class="bounce-dots"><span></span><span></span><span></span></div>
+      <span>GITAM AI is thinking…</span>
+    </div>
+
+    <footer class="chat-footer">
+      <div class="footer-inner">
+        <textarea id="msgInput" class="msg-input" placeholder="Type your question here…" rows="1" maxlength="500"></textarea>
+        <button class="send-btn" id="sendBtn" disabled aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+      <p class="footer-hint"><kbd>Enter</kbd> to send &nbsp;·&nbsp; <kbd>Shift+Enter</kbd> for new line</p>
+    </footer>
+
+  </main>
+
+  <!-- ══════ TICKET MODAL ══════ -->
+  <div class="modal-overlay" id="ticketModal">
+    <div class="modal-card">
+      <div class="modal-emoji">🎫</div>
+      <h3 class="modal-heading">Support Ticket Raised!</h3>
+      <p class="modal-text" id="modalText">Your issue has been recorded.</p>
+      <div class="ticket-id-badge" id="ticketBadge"></div>
+      <p class="modal-info">Our grievance team will respond within <strong>48 working hours</strong>. Please save your Ticket ID for tracking.</p>
+      <button class="modal-ok" id="modalOk">Got it, thank you!</button>
+    </div>
+  </div>
+
+  <!-- Mobile sidebar overlay -->
+  <div class="modal-overlay sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
